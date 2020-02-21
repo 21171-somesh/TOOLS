@@ -10,7 +10,7 @@ mongoose.Promise = global.Promise;
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useNewUrlParser', true);
 
-// connectr DB
+// connect DB
 mongoose.connect(require('./env')['mongouri'])
   .then(() => console.log("Database Connected"))
   .catch(err => console.log(err));
