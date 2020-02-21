@@ -1,8 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const app = express();
 const ENV = process.env.NODE_ENV == 'production' ? 'production' : 'test';
+
+// setup MongoDB
+mongoose.Promise = global.Promise;
+mongoose.set('useUnifiedTopology', true);
+mongoose.set('useNewUrlParser', true);
+
+// connectr DB
+mongoose.connect(require('./env')['mongouri'])
+  .then(() => console.log("Database Connected"))
+  .catch(err => console.log(err));
 
 // Middleware initialization
 app.use(bodyParser.json());
