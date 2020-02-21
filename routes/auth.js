@@ -40,7 +40,7 @@ router.post('/create', validateJSON, (req, res) => {
       }
     });
   });
-})
+});
 
 router.post('/auth', validateJSON, (req, res) => {
   const body = req.body;
@@ -60,6 +60,6 @@ router.post('/auth', validateJSON, (req, res) => {
     .catch(err => {
       res.json({error: true, message: err});
     });
-})
+});
 
 module.exports = router;
