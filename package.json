@@ -1,11 +1,12 @@
 {
   "name": "medapis",
   "version": "1.0.0",
-  "description": "Helper API's for MediHelper application",
+  "description": "API's for AlgoBox",
   "main": "app.js",
   "scripts": {
-    "test": "nodemon app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "mocha",
+    "nodemon": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -18,10 +19,15 @@
   },
   "homepage": "https://github.com/AbhiY98/MediHelperAPIs#readme",
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {
     "mongoose": "^5.9.1",
-    "nodemon": "^2.0.2",
-    "bcrypt": "^3.0.6"
+    "chai": "^4.2.0",
+    "mocha": "^7.1.0"
   }
 }
