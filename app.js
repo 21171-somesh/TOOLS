@@ -10,8 +10,8 @@ db.connect_db();
 // Middleware initialization
 app.use(bodyParser.json());
 
-// Routes
-app.use('/auth', require('./routes/auth'));
+// Handle Endpoints 
+app.use('/api', require('./api/router'));
 
 const port = ENV == 'production' ? process.env.PORT : 3000;
 
