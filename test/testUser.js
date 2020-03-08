@@ -12,15 +12,18 @@ describe('Test for user', async function() {
       .catch((err) => done(err))
   })
   
-  it('all db user tests', async () => {
+  it('db user success tests', async () => {
     let [user, err] = await invoker(getUser('test'));
     assert.equal(err, null);
     assert.equal(user.name, "Abhishekk Yadav");
     assert.notEqual(user.password, "test");
-    [user, err] = await invoker(getUser('___'));
-    assert(err, "userNotFound") 
   })
-  
+
+  it('db user user not exists tests', async () => {
+    let [user, err] = await invoker(getUser('___'));
+    assert.equal(err, "userNotFound");
+  })
+
   after((done) => {
     mongoose.connection.close()
       .then(() => done())

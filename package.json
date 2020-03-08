@@ -1,5 +1,5 @@
 {
-  "name": "medapis",
+  "name": "tools",
   "version": "1.0.0",
   "description": "API's for AlgoBox",
   "main": "app.js",
