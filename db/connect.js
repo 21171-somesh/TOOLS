@@ -7,7 +7,8 @@ mongoose.set('useNewUrlParser', true);
 exports.connect_db = async() => {
   // connect DB
   try {
-    await mongoose.connect(require('../utils/env')['mongouri'])
+    if(!process.env.mongouri) process.exit(1);
+    await mongoose.connect(process.env.mongouri);
     console.log("Connected to DB");
   } catch (err) {
     console.log(err);
