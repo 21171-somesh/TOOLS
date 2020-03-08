@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ProblemSchema = new mongoose.Schema({
+const ProblemSchema = mongoose.Schema({
   code: {
     type: String,
     required: true
@@ -35,4 +35,4 @@ const ProblemSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.Model('Problem', ProblemSchema);
+module.exports = mongoose.model('Problem', ProblemSchema);
