@@ -15,7 +15,7 @@ const getUser = (username) => {
 }
 
 const createUser = (user) => {
-  return new Promise( (resolve, reject) => {
+  return new Promise((resolve, reject) => {
     user.save()
       .then((user) => {
         return resolve(user)

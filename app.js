@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.use('/auth', require('./routes/auth'));
+app.use('/problems', require('./routes/problems'));
 
 const port = ENV == 'production' ? process.env.PORT : 3000;
 
