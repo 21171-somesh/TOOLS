@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('./config/db')
+const db = require('./db/connect')
 
 const app = express();
 const ENV = process.env.NODE_ENV == 'production' ? 'production' : 'test';
