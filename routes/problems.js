@@ -10,6 +10,13 @@ router.get('/getProblem/:id', async(req, res) => {
   writeResponse(null, {problem: problem}, res);
 });
 
+router.get('/getProblems/:num', async(req, res) => {
+  const { num } = req.params.num;
+  const [problems, err] = await invoker(getProblems(num));
+  if(err) return writeResponse({msg: err}, null, res);
+  writeResponse(null, {problems: problems}, res);
+})
+
 router.post('/saveProblem', async(req, res) => {
   const { code } = req.body;
   const [_, exists] = await invoker(getProblem(code));

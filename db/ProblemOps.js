@@ -14,7 +14,18 @@ const getProblem = (problem_id) => {
 };
 
 const getProblems = (num) => {
-
+  return new Promise((resolve, reject) => {
+    Problem.find()
+      .sort({solved: -1})
+      .select('code name solved attempted')
+      .limit(num)
+      .then((problems) => {
+        resolve(problems);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+  });
 }
 
 const saveProblem = (problem) => {

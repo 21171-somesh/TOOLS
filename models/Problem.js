@@ -29,9 +29,21 @@ const ProblemSchema = mongoose.Schema({
     type: [Object],
     default: []
   },
+  tags: {
+    type: [String],
+    defaule: ["Problem"]
+  },
   created: {
     type: Date,
     default: Date.now()
+  },
+  solved: {
+    type: Number,
+    default: 0
+  },
+  attempted: {
+    type: Number,
+    default: 0
   }
 });
 
