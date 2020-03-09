@@ -1,17 +1,23 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('./db/connect')
+const { connect_db } = require('./db/connect')
+const{ NODE_ENV } = require('./config/dotenv');
 
 const app = express();
 const ENV = process.env.NODE_ENV == 'production' ? 'production' : 'test';
 
-db.connect_db();
+connect_db()
+  .then()
+  .catch((err) => {
+    console.log(err);
+    process.exit(1);
+  })
 
 // Middleware initialization
 app.use(bodyParser.json());
 
-// Routes
-app.use('/auth', require('./routes/auth'));
+// Handle Endpoints 
+app.use('/api', require('./api/router'));
 
 const port = ENV == 'production' ? process.env.PORT : 3000;
 
